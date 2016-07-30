@@ -10,3 +10,4 @@ vs2015="%VS140COMNTOOLS%\VsDevCmd.bat"
 vs2013="%VS120COMNTOOLS%\VsDevCmd.bat"
 vs="%VS140COMNTOOLS%\VsDevCmd.bat"
 which=where $*
+s=git status  
