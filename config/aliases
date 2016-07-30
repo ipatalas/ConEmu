@@ -1,0 +1,12 @@
+e.=explorer .
+gl=git log --oneline --all --graph --decorate  $*
+ls=ls --show-control-chars -F --color $*
+pwd=cd
+clear=cls
+history=cat %ConEmuDir%\config\.history
+unalias=alias /d $1
+tc.=d:\Programs\TotalCmd\TOTALCMD64.EXE /O /T /R="%CD%"
+vs2015="%VS140COMNTOOLS%\VsDevCmd.bat"
+vs2013="%VS120COMNTOOLS%\VsDevCmd.bat"
+vs="%VS140COMNTOOLS%\VsDevCmd.bat"
+which=where $*
