@@ -506,7 +506,24 @@ local git_parser = parser(
         ),
         "checkout-index",
         "cherry",
-        "cherry-pick",
+        "cherry-pick"..parser(
+            "-e", "--edit",
+            "-m", "--mainline ",
+            "-n", "--no-commit",
+            "-r",
+            "-x",
+            "--ff",
+             "-s", "-S", "--gpg-sign",
+            "--allow-empty",
+            "--allow-empty-message",
+            "--keep-redundant-commits",
+            "--strategy"..parser({merge_strategies}),
+            "-X"..parser({merge_recursive_options}),
+            "--strategy-option"..parser({merge_recursive_options}),
+            "--continue",
+            "--quit",
+            "--abort"
+        ),
         "citool",
         "clean",
         "clone",
@@ -562,11 +579,16 @@ local git_parser = parser(
         "diff-files",
         "diff-index",
         "diff-tree",
-        "difftool",
+        "difftool"..parser(
+            "-d", "--dir-diff",
+            "-y", "--no-prompt", "--prompt",
+            "-t", "--tool=" -- TODO: complete tool (take from config)
+        ),
         "difftool--helper",
         "fast-export",
         "fast-import",
         "fetch" .. parser({remotes},
+            "--prune",
             "--tags"
         ),
         "fetch-pack",
@@ -769,8 +791,8 @@ local git_parser = parser(
         "repo-config",
         "request-pull",
         "rerere",
-        "reset"..parser(
-        -- TODO: Add commit/tree/branch completions
+        -- TODO: Add commit completions
+        "reset"..parser({local_or_remote_branches},
             "-q",
             "-p", "--patch",
             "--soft", "--mixed", "--hard",
