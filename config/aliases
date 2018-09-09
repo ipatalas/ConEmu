@@ -15,3 +15,4 @@ gpr=git pull -r
 _stashPullPush=git stash && git pull -r && git push && git stash pop
 _pullPush=git pull -r && git push
 _mergeDev=git fetch && git merge origin/develop
+cat=bat $*
