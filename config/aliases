@@ -1,8 +1,4 @@
 e.=explorer .
-gl=git log --oneline --all --graph --decorate  $*
-s=git status  
-gf=git fetch  
-gpr=git pull -r
 b=bash --login -i
 ls=ls --show-control-chars -F --color $*
 pwd=cd
@@ -13,6 +9,11 @@ tc.=%COMMANDER_EXE% /O /T /R="%CD%"
 vs2015="%VS140COMNTOOLS%\VsDevCmd.bat"
 vs="%VS140COMNTOOLS%\VsDevCmd.bat"
 which=where $*
+gl=git log --oneline --all --graph --decorate  $*
+s=git status  
+gf=git fetch  
+gpr=git pull -r
+log=TortoiseGitProc.exe /command:log
 _stashPullPush=git stash && git pull -r && git push && git stash pop
 _pullPush=git pull -r && git push
 _mergeDev=git fetch && git merge origin/develop
