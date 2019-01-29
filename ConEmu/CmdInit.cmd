@@ -50,7 +50,7 @@ rem Set new prompt
 PROMPT %ConEmuPrompt1%%ConEmuPrompt2%%ConEmuPrompt3%
 :end_git
 
-%ConEmuDir%\fido.cmd
+%ConEmuDir%\setup.cmd
 
 rem Support additional batch execution as `{cmd} "path\to\batch.cmd" <arguments>`
 rem Due to parsing rules of cmd.exe last argument must NOT ends with "
