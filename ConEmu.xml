@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2019-01-29 22:56:41" build="190108">
+		<key name=".Vanilla" modified="2019-04-28 22:20:57" build="190108">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
 			<value name="StartTasksName" type="string" data="{Shells::cmd (Admin)}"/>
 			<value name="StartFarFolders" type="hex" data="00"/>
 			<value name="StartFarEditors" type="hex" data="00"/>
-			<value name="ColorTable00" type="dword" data="00222827"/>
-			<value name="ColorTable01" type="dword" data="009e5401"/>
-			<value name="ColorTable02" type="dword" data="0004aa74"/>
-			<value name="ColorTable03" type="dword" data="00a6831a"/>
-			<value name="ColorTable04" type="dword" data="003403a7"/>
-			<value name="ColorTable05" type="dword" data="009c5689"/>
-			<value name="ColorTable06" type="dword" data="0049b6b6"/>
-			<value name="ColorTable07" type="dword" data="00cacaca"/>
-			<value name="ColorTable08" type="dword" data="007c7c7c"/>
-			<value name="ColorTable09" type="dword" data="00f58303"/>
-			<value name="ColorTable10" type="dword" data="0006d08d"/>
-			<value name="ColorTable11" type="dword" data="00e5c258"/>
-			<value name="ColorTable12" type="dword" data="004b04f3"/>
-			<value name="ColorTable13" type="dword" data="00b87da8"/>
-			<value name="ColorTable14" type="dword" data="0081cccc"/>
-			<value name="ColorTable15" type="dword" data="00ffffff"/>
+			<value name="ColorTable00" type="dword" data="0036342e"/>
+			<value name="ColorTable01" type="dword" data="00a46534"/>
+			<value name="ColorTable02" type="dword" data="00069a4e"/>
+			<value name="ColorTable03" type="dword" data="009a9806"/>
+			<value name="ColorTable04" type="dword" data="000000cc"/>
+			<value name="ColorTable05" type="dword" data="007b5075"/>
+			<value name="ColorTable06" type="dword" data="0000a0c4"/>
+			<value name="ColorTable07" type="dword" data="00cfd7d3"/>
+			<value name="ColorTable08" type="dword" data="00535755"/>
+			<value name="ColorTable09" type="dword" data="00cf9f72"/>
+			<value name="ColorTable10" type="dword" data="0034e28a"/>
+			<value name="ColorTable11" type="dword" data="00e2e234"/>
+			<value name="ColorTable12" type="dword" data="002929ef"/>
+			<value name="ColorTable13" type="dword" data="00a87fad"/>
+			<value name="ColorTable14" type="dword" data="004fe9fc"/>
+			<value name="ColorTable15" type="dword" data="00eceeee"/>
 			<value name="ColorTable16" type="dword" data="00000000"/>
 			<value name="ColorTable17" type="dword" data="00800000"/>
 			<value name="ColorTable18" type="dword" data="00008000"/>
@@ -59,7 +59,7 @@
 			<value name="FontSize" type="ulong" data="16"/>
 			<value name="StatusFontHeight" type="long" data="12"/>
 			<value name="TabFontHeight" type="long" data="14"/>
-			<key name="HotKeys" modified="2019-01-29 22:56:35" build="190108">
+			<key name="HotKeys" modified="2019-02-03 00:17:21" build="190108">
 				<value name="MinimizeRestore" type="dword" data="000011c0"/>
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
@@ -172,7 +172,7 @@
 				<value name="PastePathKey" type="dword" data="00101144"/>
 				<value name="PasteCygwinKey" type="dword" data="00005d2d"/>
 				<value name="KeyMacro01" type="dword" data="00000000"/>
-				<value name="KeyMacro01.Text" type="string" data=""/>
+				<value name="KeyMacro01.Text" type="string" data='print("\efzf\n")'/>
 				<value name="KeyMacro02" type="dword" data="00000000"/>
 				<value name="KeyMacro02.Text" type="string" data=""/>
 				<value name="KeyMacro03" type="dword" data="00000000"/>
@@ -261,11 +261,11 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="178"/>
-			<value name="ConWnd Y" type="long" data="69"/>
+			<value name="ConWnd X" type="long" data="101"/>
+			<value name="ConWnd Y" type="long" data="117"/>
 			<value name="LastMonitor" type="string" data="0,0,1920,1040"/>
-			<value name="ConWnd Width" type="dword" data="000000b3"/>
-			<value name="ConWnd Height" type="dword" data="0000002b"/>
+			<value name="ConWnd Width" type="dword" data="000000af"/>
+			<value name="ConWnd Height" type="dword" data="00000026"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="StartCreateDelay" type="ulong" data="100"/>
 			<value name="ExtendFonts" type="hex" data="00"/>
@@ -316,13 +316,13 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{Putty}"/>
+				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{Shells::WSL}"/>
+				<line data="{Shells::cmd}"/>
 				<line data="{zsh}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
-				<line data="{Putty}"/>
-				<line data="{Shells::cmd}"/>
 				<line data="{Shells::PowerShell}"/>
-				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{Tools::Chocolatey (Admin)}"/>
 			</value>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
@@ -345,7 +345,7 @@
 			<value name="Multi.Iterate" type="hex" data="01"/>
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
-			<value name="FontName" type="string" data="Consolas"/>
+			<value name="FontName" type="string" data="Meslo LG M DZ for Powerline"/>
 			<value name="FontName2" type="string" data="Consolas"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
@@ -359,13 +359,13 @@
 			<value name="CompressLongStrings" type="hex" data="01"/>
 			<value name="BackGround Image show" type="hex" data="00"/>
 			<value name="BackGround Image" type="string" data=""/>
-			<value name="bgImageDarker" type="hex" data="FF"/>
+			<value name="bgImageDarker" type="hex" data="F8"/>
 			<value name="bgImageColors" type="dword" data="00000001"/>
 			<value name="bgOperation" type="hex" data="00"/>
 			<value name="bgPluginAllowed" type="hex" data="01"/>
-			<value name="AlphaValue" type="hex" data="E2"/>
+			<value name="AlphaValue" type="hex" data="FA"/>
 			<value name="AlphaValueSeparate" type="hex" data="01"/>
-			<value name="AlphaValueInactive" type="hex" data="E6"/>
+			<value name="AlphaValueInactive" type="hex" data="F1"/>
 			<value name="UserScreenTransparent" type="hex" data="00"/>
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
@@ -642,12 +642,12 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task5" modified="2019-01-29 22:56:35" build="190108">
+				<key name="Task5" modified="2019-02-02 14:55:24" build="190108">
 					<value name="Name" type="string" data="{Shells::WSL}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data='/dir %CD% /icon "%USERPROFILE%\AppData\Local\lxss\bash.ico"'/>
-					<value name="Cmd1" type="string" data='set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:pm:/mnt'/>
+					<value name="Cmd1" type="string" data='set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" &amp; %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:h0:/mnt'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -681,7 +681,7 @@
 			<value name="Language" type="string" data="en"/>
 			<value name="ClipboardAllLinesPosix" type="hex" data="00"/>
 			<value name="ClipboardFirstLinePosix" type="hex" data="00"/>
-			<value name="RestoreInactive" type="hex" data="00"/>
+			<value name="RestoreInactive" type="hex" data="01"/>
 			<value name="DynamicBufferHeight" type="hex" data="01"/>
 			<value name="AutoTrimSingleLine" type="hex" data="00"/>
 			<value name="StatusBar.Hide.WMode" type="hex" data="01"/>
