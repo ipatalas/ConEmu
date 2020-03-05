@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2019-04-28 22:20:57" build="190108">
+		<key name=".Vanilla" modified="2020-03-05 22:00:46" build="190108">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -261,11 +261,11 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="101"/>
-			<value name="ConWnd Y" type="long" data="117"/>
+			<value name="ConWnd X" type="long" data="299"/>
+			<value name="ConWnd Y" type="long" data="119"/>
 			<value name="LastMonitor" type="string" data="0,0,1920,1040"/>
-			<value name="ConWnd Width" type="dword" data="000000af"/>
-			<value name="ConWnd Height" type="dword" data="00000026"/>
+			<value name="ConWnd Width" type="dword" data="00000093"/>
+			<value name="ConWnd Height" type="dword" data="00000027"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="StartCreateDelay" type="ulong" data="100"/>
 			<value name="ExtendFonts" type="hex" data="00"/>
@@ -316,12 +316,20 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
-				<line data="{Putty}"/>
+				<line data="{NUC}"/>
 				<line data="{Shells::cmd (Admin)}"/>
-				<line data="{Shells::WSL}"/>
+				<line data="{RPi - Dashboard}"/>
+				<line data="{pwsh}"/>
 				<line data="{Shells::cmd}"/>
-				<line data="{zsh}"/>
+				<line data="{Group11}"/>
+				<line data="{Putty}"/>
+				<line data="{Group10}"/>
+				<line data="{Putty (NUC)}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
+				<line data="{Shells::WSL}"/>
+				<line data="{Putty (dashboard)}"/>
+				<line data="D:\Programs\Net\Putty\putty.exe"/>
+				<line data="{zsh}"/>
 				<line data="{Shells::PowerShell}"/>
 				<line data="{Tools::Chocolatey (Admin)}"/>
 			</value>
@@ -345,8 +353,8 @@
 			<value name="Multi.Iterate" type="hex" data="01"/>
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
-			<value name="FontName" type="string" data="Meslo LG M DZ for Powerline"/>
-			<value name="FontName2" type="string" data="Consolas"/>
+			<value name="FontName" type="string" data="Meslo LG M for Powerline"/>
+			<value name="FontName2" type="string" data="Meslo LG M for Powerline"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontSizeX2" type="ulong" data="0"/>
@@ -559,7 +567,7 @@
 			<value name="MinimizeOnLoseFocus" type="hex" data="00"/>
 			<value name="DisableFarFlashing" type="hex" data="00"/>
 			<value name="DisableAllFlashing" type="hex" data="00"/>
-			<value name="FindText" type="string" data="glob"/>
+			<value name="FindText" type="string" data="ramda"/>
 			<value name="FindMatchCase" type="hex" data="00"/>
 			<value name="FindMatchWholeWords" type="hex" data="00"/>
 			<value name="FindTransparent" type="hex" data="01"/>
@@ -604,8 +612,8 @@
 			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
-			<key name="Tasks" modified="2018-10-30 18:32:36" build="161206">
-				<value name="Count" type="long" data="7"/>
+			<key name="Tasks" modified="2020-03-05 20:55:44" build="190108">
+				<value name="Count" type="long" data="12"/>
 				<key name="Task1" modified="2018-10-30 18:32:36" build="161206">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000002"/>
@@ -642,7 +650,16 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task5" modified="2019-02-02 14:55:24" build="190108">
+				<key name="Task5" modified="2020-03-05 21:51:34" build="190108">
+					<value name="Name" type="string" data="{Shells::pwsh}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Cmd1" type="string" data="*pwsh -ExecutionPolicy Bypass"/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+				</key>
+				<key name="Task6" modified="2020-03-05 20:55:44" build="190108">
 					<value name="Name" type="string" data="{Shells::WSL}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -651,23 +668,59 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task6" modified="2019-01-29 22:56:35" build="190108">
+				<key name="Task7" modified="2020-03-05 22:06:58" build="190108">
+					<value name="Name" type="string" data="{NUC}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data='/icon "%ConEmuDir%\linux.ico"'/>
+					<value name="Cmd1" type="string" data='cmd.exe /c "ssh fido@192.168.1.66"'/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+				</key>
+				<key name="Task8" modified="2020-03-05 21:57:32" build="190108">
+					<value name="Name" type="string" data="{RPi - Dashboard}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data='/icon "%ConEmuDir%\raspberry.ico"'/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='cmd.exe /c "ssh pi@192.168.1.105"'/>
+				</key>
+				<key name="Task9" modified="2020-03-05 20:55:44" build="190108">
+					<value name="Name" type="string" data="{Putty::Putty}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data="D:\Programs\Net\Putty\putty.exe -new_console"/>
+				</key>
+				<key name="Task10" modified="2020-03-05 20:55:44" build="190108">
+					<value name="Name" type="string" data="{Putty::NUC}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='D:\Programs\Net\Putty\putty.exe -new_console -load "NUC"'/>
+				</key>
+				<key name="Task11" modified="2020-03-05 20:55:44" build="190108">
+					<value name="Name" type="string" data="{Putty::dashboard}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='D:\Programs\Net\Putty\putty.exe -new_console -load "dashboard"'/>
+				</key>
+				<key name="Task12" modified="2020-03-05 20:55:44" build="190108">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k type "%ConEmuBaseDir%\Addons\AnsiColors16t.ans" -cur_console:n'/>
-					<value name="Active" type="long" data="0"/>
-					<value name="Count" type="long" data="1"/>
-				</key>
-				<key name="Task7" modified="2019-01-29 22:56:35" build="190108">
-					<value name="Name" type="string" data="{Putty}"/>
-					<value name="Flags" type="dword" data="00000004"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
-					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="D:\Programs\Net\Putty\putty.exe -new_console"/>
-					<value name="Active" type="long" data="0"/>
-					<value name="Count" type="long" data="1"/>
 				</key>
 			</key>
 			<key name="Apps" modified="2018-10-30 18:36:17" build="161206">
