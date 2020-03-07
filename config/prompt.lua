@@ -59,6 +59,7 @@ local BRANCH_SYMBOL = ""
 local PROMPT_END_CHAR = "λ"
 local PROMPT_ADMIN_CHAR = "⚡"
 local NPM_ICON = ""
+local CLOCK_ICON = ''
 local RESET_SEQ = "\x1b[0m"
 
 local PROMPT_PATH_TYPES = createTable(PROMPT_FULL, PROMPT_FOLDER)
@@ -158,21 +159,6 @@ function git_prompt_filter()
     clink.prompt.value = string.gsub(clink.prompt.value, "{git}", "")
 end
 
--- Add PROMPT variable contents to the prompt (strip DOS symbols)
--- so virtual environments will be shown
-function env_prompt_filter()
-    local original_prompt = clink.get_env("PROMPT")
-    local original_prompt_env = ""
-    if original_prompt ~= nil then
-        local c = string.find(original_prompt, "[$]")
-        if c ~= nil then
-            original_prompt_env = string.sub(original_prompt, 1, c - 1)
-        end
-    end
-
-    clink.prompt.value = string.gsub(clink.prompt.value, "{env}", colored_text(original_prompt_env, color.GREEN, color.BLACK, color.BOLD))
-end
-
 -- Adapted from 'npm.lua'
 local function npm_prompt_filter()
     local folder_name = get_folder_name(clink.get_cwd())
@@ -232,8 +218,7 @@ function agnoster_filter()
 end
 
 function time_prompt_filter()
-    local clock_icon = ' '
-    clink.prompt.value = string.gsub(clink.prompt.value, '(%d+:%d+:%d+),(%d+)', clock_icon..'%1.%2')
+    clink.prompt.value = string.gsub(clink.prompt.value, '(%d+:%d+:%d+),(%d+)', CLOCK_ICON..' %1.%2')
 end
 
 -- override the built-in filters
@@ -244,7 +229,6 @@ clink.prompt.register_filter(admin_prompt_filter, 10)
 clink.prompt.register_filter(user_prompt_filter, 10)
 clink.prompt.register_filter(cwd_prompt_filter, 10)
 clink.prompt.register_filter(git_prompt_filter, 10)
-clink.prompt.register_filter(env_prompt_filter, 10)
 clink.prompt.register_filter(npm_prompt_filter, 10)
 clink.prompt.register_filter(agnoster_filter, 99)
 
