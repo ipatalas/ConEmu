@@ -238,16 +238,3 @@ clink.prompt.register_filter(git_prompt_filter, 10)
 clink.prompt.register_filter(env_prompt_filter, 10)
 clink.prompt.register_filter(npm_prompt_filter, 10)
 clink.prompt.register_filter(agnoster_filter, 99)
-
--- Load required completion scripts (Adapted from 'clink.lua')
-local COMPLETION_SCRIPTS_TO_LOAD = createTable("git_prompt.lua")
-
-local completions_dir = clink.get_env('CMDER_ROOT')..'/vendor/clink-completions/'
-for _,lua_module in ipairs(clink.find_files(completions_dir..'*.lua')) do
-    if contains(COMPLETION_SCRIPTS_TO_LOAD, lua_module) then
-        local filename = completions_dir..lua_module
-        -- use dofile instead of require because require caches loaded modules
-        -- so config reloading using Alt-Q won't reload updated modules.
-        dofile(filename)
-    end
-end
