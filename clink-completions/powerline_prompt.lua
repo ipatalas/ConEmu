@@ -181,6 +181,8 @@ end
 
 -- Adapted from 'npm.lua'
 local function npm_prompt_filter()
+    local folder_name = get_folder_name(clink.get_cwd())
+
     local function npm_substitute_builder()
         local package_file = io.open('package.json')
         if not package_file then return "" end
@@ -196,6 +198,11 @@ local function npm_prompt_filter()
 
         local package_name = package.name or "<no name>"
         local package_version = package.version and "@"..package.version or ""
+
+        if (package_name == folder_name) then
+            package_name = ""
+        end
+
         return colored_text("("..NPM_ICON.." "..package_name..package_version..")", color.YELLOW, color.BLACK)
     end
 
