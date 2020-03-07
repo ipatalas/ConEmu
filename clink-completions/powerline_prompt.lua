@@ -43,7 +43,7 @@ local function get_git_status()
         return false
     end
     file:close()
-    
+
     return true
 end
 
@@ -59,6 +59,7 @@ local BRANCH_SYMBOL = ""
 local PROMPT_END_CHAR = "λ"
 local PROMPT_ADMIN_CHAR = "⚡"
 local NPM_ICON = ""
+local DARK_GREY = "\x1b[1;30;40m"
 local RESET_SEQ = "\x1b[0m"
 
 local PROMPT_PATH_TYPES = createTable(PROMPT_FULL, PROMPT_FOLDER)
@@ -77,11 +78,11 @@ local ascii_cwd
 -- Filter Definitions
 function reset_prompt_filter()
     old_prompt = clink.prompt.value
-    
-    local prompt_header = "{admin}{user}{cwd}{git}{npm}\x1b[K\x1b[0m"
+
+    local prompt_header = "{admin}{user}{cwd}{git}{npm}{time}\x1b[K\x1b[0m"
     local prompt_lhs = "{env}{lamb} \x1b[0m"
     clink.prompt.value = prompt_header .. "\n" .. prompt_lhs
-    
+
     clink.prompt.value = string.gsub(clink.prompt.value, "{lamb}", colored_text(PROMPT_END_CHAR, color.GREEN, color.BLACK, color.BOLD))
 end
 
@@ -93,7 +94,7 @@ function admin_prompt_filter()
             return false;
         end
     end
-    
+
     clink.prompt.value = string.gsub(clink.prompt.value, "{admin}", "")
 end
 
@@ -101,17 +102,17 @@ function user_prompt_filter()
     if settings.display_user then
         local username = clink.get_env("USERNAME")
         local host = clink.get_env("COMPUTERNAME")
-        
+
         clink.prompt.value = string.gsub(clink.prompt.value, "{user}", colored_text(username.."@"..host, color.WHITE, color.BLACK))
         return false
     end
-    
+
     clink.prompt.value = string.gsub(clink.prompt.value, "{user}", "")
 end
 
 function cwd_prompt_filter()
     clink_cwd = clink.get_cwd()
-    
+
     -- get_cwd() is differently encoded than the clink.prompt.value, so everything other than
     -- pure ASCII will get garbled. So try to parse the current directory from the original prompt
     -- and only if that doesn't work, use get_cwd() directly.
@@ -119,14 +120,14 @@ function cwd_prompt_filter()
     -- (no network path possible here!)
     ascii_cwd = old_prompt:match('.*(.:[^>]*)>')
     local cwd = ascii_cwd or clink_cwd
-    
+
     if settings.path_type == PROMPT_FOLDER then
         cwd = get_folder_name(cwd)
     elseif settings.tilde_substitution then
         local home_pattern = string.gsub(clink.get_env("userprofile"), "[%(%)%.%+%-%*%?%[%]%^%$%%]", "%%%1")
         cwd = string.gsub(cwd, home_pattern, "~")
     end
-    
+
     clink.prompt.value = string.gsub(clink.prompt.value, "{cwd}", colored_text(cwd, color.WHITE, color.BLUE))
 end
 
@@ -134,26 +135,26 @@ function git_prompt_filter()
     local git_dir = gitutil.get_git_dir(clink_cwd)
     -- Ugly : 'get_git_dir' uses same encoding that clink.prompt.value, but 'get_git_branch' uses the encoding of 'clink.get_cwd()'
     -- No difference for paths whithout special characters (accent...)
-    if not git_dir and clink_cwd ~= ascii_cwd then 
+    if not git_dir and clink_cwd ~= ascii_cwd then
         git_dir = gitutil.get_git_dir(ascii_cwd)
         if git_dir then
             local path_separator_pattern = "[\\/]";
             local nb_separator_in_current_dir = select(2, string.gsub(clink_cwd, path_separator_pattern, ""))
             local nb_separator_in_git_dir = select(2, string.gsub(git_dir, path_separator_pattern, ""))
-            
+
             local clink_cwd_git_dir = clink_cwd
             for i=nb_separator_in_current_dir,nb_separator_in_git_dir,-1 do clink_cwd_git_dir = path.pathname(clink_cwd_git_dir) end
             git_dir = clink_cwd_git_dir .. '/.git'
         end
     end
-    
+
     if git_dir then
         -- if we're inside of git repo then try to detect current branch
         local branch = gitutil.get_git_branch(git_dir)
         if branch then
             -- Has branch => now figure out status
             local background_color = get_git_status() and color.GREEN or color.YELLOW
-            
+
             clink.prompt.value = string.gsub(clink.prompt.value, "{git}", colored_text(BRANCH_SYMBOL.." "..branch, color.BLACK, background_color))
             return false
         end
@@ -174,7 +175,7 @@ function env_prompt_filter()
             original_prompt_env = string.sub(original_prompt, 1, c - 1)
         end
     end
-    
+
     clink.prompt.value = string.gsub(clink.prompt.value, "{env}", colored_text(original_prompt_env, color.GREEN, color.BLACK, color.BOLD))
 end
 
@@ -183,21 +184,21 @@ local function npm_prompt_filter()
     local function npm_substitute_builder()
         local package_file = io.open('package.json')
         if not package_file then return "" end
-        
+
         local package_data = package_file:read('*a')
         package_file:close()
-        
+
         local package = JSON:decode(package_data)
         if not package then return "" end
-        
+
         -- Don't print package info when the package is private or both version and name are missing
         if package.private or (not package.name and not package.version) then return "" end
-        
+
         local package_name = package.name or "<no name>"
         local package_version = package.version and "@"..package.version or ""
         return colored_text("("..NPM_ICON.." "..package_name..package_version..")", color.YELLOW, color.BLACK)
     end
-    
+
     clink.prompt.value = clink.prompt.value:gsub('{npm}', npm_substitute_builder)
 end
 
@@ -212,21 +213,36 @@ function agnoster_filter()
         if not current_back_color then
             current_back_color = new_back_color or color.BLACK
         end
-        
+
         local substitute_text = current_seq
         if new_back_color ~= current_back_color then
             substitute_text = colored_text(ARROW_SYMBOL.." "..substitute_text, current_back_color, new_back_color)
             current_back_color = new_back_color
         end
-        
+
         if current_seq == RESET_SEQ then
             current_back_color = nil
         end
 
         return substitute_text
     end
-    
+
     clink.prompt.value = string.gsub(clink.prompt.value, COLOR_PATTERN, arrow_inserter)
+end
+
+function time_prompt_filter()
+    local a,ms = math.modf(os.clock())
+    if ms == 0 then
+        ms = '000'
+    else
+        ms = tostring(ms):sub(3,5)
+        a = tonumber(ms)
+        ms = string.format("%03i", a)
+    end
+
+    local time = os.date('%H:%M:%S.', os.time())
+
+    clink.prompt.value = string.gsub(clink.prompt.value, "{time}", DARK_GREY.."  "..time..ms)
 end
 
 -- override the built-in filters
@@ -238,4 +254,5 @@ clink.prompt.register_filter(cwd_prompt_filter, 10)
 clink.prompt.register_filter(git_prompt_filter, 10)
 clink.prompt.register_filter(env_prompt_filter, 10)
 clink.prompt.register_filter(npm_prompt_filter, 10)
+clink.prompt.register_filter(time_prompt_filter, 10)
 clink.prompt.register_filter(agnoster_filter, 99)
