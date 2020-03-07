@@ -7,7 +7,7 @@ if "%PROCESSOR_ARCHITECTURE%"=="x86" (
 
 :: Change the prompt style
 :: Mmm tasty lamb
-prompt $E[1;32;40m$P$S{git}{hg}$S$E[1;30;40m$t$S$_$E[1;30;40m{lamb}$S$E[0m
+prompt {admin}{user}{cwd}{git}{npm}$S$E[1;30;40m$t$_$E[1;30;40m{lamb}$S$E[0m
 
 :: Run clink
 "%ConEmuDir%\clink\clink_x%arch%.exe" inject --quiet --profile "%ConEmuDir%\config"

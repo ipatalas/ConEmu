@@ -59,7 +59,6 @@ local BRANCH_SYMBOL = ""
 local PROMPT_END_CHAR = "λ"
 local PROMPT_ADMIN_CHAR = "⚡"
 local NPM_ICON = ""
-local DARK_GREY = "\x1b[1;30;40m"
 local RESET_SEQ = "\x1b[0m"
 
 local PROMPT_PATH_TYPES = createTable(PROMPT_FULL, PROMPT_FOLDER)
@@ -78,11 +77,6 @@ local ascii_cwd
 -- Filter Definitions
 function reset_prompt_filter()
     old_prompt = clink.prompt.value
-
-    local prompt_header = "{admin}{user}{cwd}{git}{npm}{time}\x1b[K\x1b[0m"
-    local prompt_lhs = "{env}{lamb} \x1b[0m"
-    clink.prompt.value = prompt_header .. "\n" .. prompt_lhs
-
     clink.prompt.value = string.gsub(clink.prompt.value, "{lamb}", colored_text(PROMPT_END_CHAR, color.GREEN, color.BLACK, color.BOLD))
 end
 
@@ -238,28 +232,18 @@ function agnoster_filter()
 end
 
 function time_prompt_filter()
-    local a,ms = math.modf(os.clock())
-    if ms == 0 then
-        ms = '000'
-    else
-        ms = tostring(ms):sub(3,5)
-        a = tonumber(ms)
-        ms = string.format("%03i", a)
-    end
-
-    local time = os.date('%H:%M:%S.', os.time())
-
-    clink.prompt.value = string.gsub(clink.prompt.value, "{time}", DARK_GREY.."  "..time..ms)
+    local clock_icon = ' '
+    clink.prompt.value = string.gsub(clink.prompt.value, '(%d+:%d+:%d+),(%d+)', clock_icon..'%1.%2')
 end
 
 -- override the built-in filters
 clink.prompt.filters = {}
 clink.prompt.register_filter(reset_prompt_filter, 1)
+clink.prompt.register_filter(time_prompt_filter, 2)
 clink.prompt.register_filter(admin_prompt_filter, 10)
 clink.prompt.register_filter(user_prompt_filter, 10)
 clink.prompt.register_filter(cwd_prompt_filter, 10)
 clink.prompt.register_filter(git_prompt_filter, 10)
 clink.prompt.register_filter(env_prompt_filter, 10)
 clink.prompt.register_filter(npm_prompt_filter, 10)
-clink.prompt.register_filter(time_prompt_filter, 10)
 clink.prompt.register_filter(agnoster_filter, 99)
