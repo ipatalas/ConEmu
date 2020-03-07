@@ -1,13 +1,9 @@
--- This script is adapted from project : https://github.com/AmrEldib/cmder-powerline-prompt
+-- This script is adapted from project : https://github.com/fredjoseph/cmder-powerline-prompt
 local color = require('color')
 local gitutil = require('gitutil')
 local JSON = require("JSON")
 local path = require("path")
 
--- ANSI Sequences (See https://en.wikipedia.org/wiki/ANSI_escape_code#Colors for color codes)
--- Format : Esc[Value;...;Valuem
-
--- Local functions
 local function get_folder_name(path)
     local reversePath = string.reverse(path)
     local slashIndex = string.find(reversePath, "\\")
@@ -25,10 +21,6 @@ end
 
 local function get(table, key)
     return table[tostring(key)]
-end
-
-local function contains(table, key)
-    return get(table, key) ~= nil
 end
 
 local function get_env_lowercase(var)
