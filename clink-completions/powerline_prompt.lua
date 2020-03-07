@@ -58,6 +58,7 @@ local ARROW_SYMBOL = ""
 local BRANCH_SYMBOL = ""
 local PROMPT_END_CHAR = "λ"
 local PROMPT_ADMIN_CHAR = "⚡"
+local NPM_ICON = ""
 local RESET_SEQ = "\x1b[0m"
 
 local PROMPT_PATH_TYPES = createTable(PROMPT_FULL, PROMPT_FOLDER)
@@ -194,7 +195,7 @@ local function npm_prompt_filter()
         
         local package_name = package.name or "<no name>"
         local package_version = package.version and "@"..package.version or ""
-        return colored_text("("..package_name..package_version..")", color.YELLOW, color.BLACK)
+        return colored_text("("..NPM_ICON.." "..package_name..package_version..")", color.YELLOW, color.BLACK)
     end
     
     clink.prompt.value = clink.prompt.value:gsub('{npm}', npm_substitute_builder)

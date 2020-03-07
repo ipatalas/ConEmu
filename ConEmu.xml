@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-03-05 22:00:46" build="190108">
+		<key name=".Vanilla" modified="2020-03-07 21:28:39" build="190108">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -261,11 +261,11 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="299"/>
-			<value name="ConWnd Y" type="long" data="119"/>
+			<value name="ConWnd X" type="long" data="283"/>
+			<value name="ConWnd Y" type="long" data="80"/>
 			<value name="LastMonitor" type="string" data="0,0,1920,1040"/>
 			<value name="ConWnd Width" type="dword" data="00000093"/>
-			<value name="ConWnd Height" type="dword" data="00000027"/>
+			<value name="ConWnd Height" type="dword" data="00000026"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="StartCreateDelay" type="ulong" data="100"/>
 			<value name="ExtendFonts" type="hex" data="00"/>
@@ -316,22 +316,10 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{Shells::pwsh}"/>
+				<line data="{Shells::cmd}"/>
 				<line data="{NUC}"/>
 				<line data="{Shells::cmd (Admin)}"/>
-				<line data="{RPi - Dashboard}"/>
-				<line data="{pwsh}"/>
-				<line data="{Shells::cmd}"/>
-				<line data="{Group11}"/>
-				<line data="{Putty}"/>
-				<line data="{Group10}"/>
-				<line data="{Putty (NUC)}"/>
-				<line data="{Shells::PowerShell (Admin)}"/>
-				<line data="{Shells::WSL}"/>
-				<line data="{Putty (dashboard)}"/>
-				<line data="D:\Programs\Net\Putty\putty.exe"/>
-				<line data="{zsh}"/>
-				<line data="{Shells::PowerShell}"/>
-				<line data="{Tools::Chocolatey (Admin)}"/>
 			</value>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
 			<value name="Multi" type="hex" data="01"/>
@@ -353,8 +341,8 @@
 			<value name="Multi.Iterate" type="hex" data="01"/>
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
-			<value name="FontName" type="string" data="Meslo LG M for Powerline"/>
-			<value name="FontName2" type="string" data="Meslo LG M for Powerline"/>
+			<value name="FontName" type="string" data="MesloLGM NF"/>
+			<value name="FontName2" type="string" data="MesloLGM NF"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontSizeX2" type="ulong" data="0"/>
@@ -428,8 +416,8 @@
 			<value name="HighlightMouseRow" type="hex" data="00"/>
 			<value name="HighlightMouseCol" type="hex" data="00"/>
 			<value name="FixFarBorders" type="hex" data="01"/>
-			<value name="Anti-aliasing2" type="hex" data="00"/>
-			<value name="FixFarBordersRanges" type="string" data="2013-25C4;"/>
+			<value name="Anti-aliasing2" type="hex" data="01"/>
+			<value name="FixFarBordersRanges" type="string" data="2013-25C4;26A1;E0A0;E0B0;"/>
 			<value name="ExtendUCharMap" type="hex" data="01"/>
 			<value name="EnhanceGraphics" type="hex" data="01"/>
 			<value name="EnhanceButtons" type="hex" data="00"/>
