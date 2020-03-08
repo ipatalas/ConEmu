@@ -50,6 +50,7 @@ local ARROW_SYMBOL = ""
 local BRANCH_SYMBOL = ""
 local PROMPT_END_CHAR = "λ"
 local PROMPT_ADMIN_CHAR = "⚡"
+local PROMPT_FOLDER_CHAR = ""
 local NPM_ICON = ""
 local CLOCK_ICON = ''
 local RESET_SEQ = "\x1b[0m"
@@ -115,7 +116,7 @@ function cwd_prompt_filter()
         cwd = string.gsub(cwd, home_pattern, "~")
     end
 
-    clink.prompt.value = string.gsub(clink.prompt.value, "{cwd}", colored_text(cwd, color.WHITE, color.BLUE))
+    clink.prompt.value = string.gsub(clink.prompt.value, "{cwd}", colored_text(' '..PROMPT_FOLDER_CHAR..'  '..cwd, color.WHITE, color.BLUE))
 end
 
 function git_prompt_filter()
@@ -187,6 +188,7 @@ function agnoster_filter()
     local BACK_COLOR_PATTERN = "4(%d)"
     local RESET_COLOR_PATTERN = "(0)m"
     local current_back_color = nil
+
     local function arrow_inserter(current_seq)
         local new_back_color = tonumber(string.match(current_seq, BACK_COLOR_PATTERN) or string.match(current_seq, RESET_COLOR_PATTERN))
         if not current_back_color then
