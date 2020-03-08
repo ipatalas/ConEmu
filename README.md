@@ -16,3 +16,26 @@ It includes the following add-ins:
   - TimeMem.exe (UNIX time alike)
   - [xml.exe](http://xmlstar.sourceforge.net/doc/UG/ch04.html) (query xml from cmd)
   - nano.exe (Windows port - including syntax highlighting for most languages)
+
+## Prompt
+
+CMD prompt is also customized:
+![prompt](prompt.png)
+
+It's loosely based on [Powerline prompt for Cmder](https://github.com/fredjoseph/cmder-powerline-prompt#cmder---powerline-prompt-for-cmd-shell) which itself is based on Agnoster theme for oh-my-zsh. 
+It contains the following segments:
+
+- current working directory (replaced by [~ for user's home dir](https://github.com/fredjoseph/cmder-powerline-prompt#cmd-customizations))
+- git information (green when clean, yellow for dirty)
+- npm package information `package-name@version` (package-name is omitted when same as current folder name)
+- current timestamp
+
+# Installation
+
+1. Install fonts from ./fonts folder
+2. Adjust tasks to suit yourself - some of mine will not work for you
+
+# Credits
+
+* Meslo LG M NerdFonts - https://www.nerdfonts.com/#home
+* [Cmder - Powerline prompt](https://github.com/fredjoseph/cmder-powerline-prompt) - thanks for inspiration
