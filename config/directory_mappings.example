@@ -1,0 +1,7 @@
+D:\docker    = ESC[3DESC[36;1;44m ESC[37;1;44m[Docker]
+D:\rpi       = ESC[3DESC[31;1;44m ESC[37;1;44mD:\rpi
+D:\dotnet    = ESC[3DESC[36;1;44m ESC[37;1;44mD:\dotnet
+D:\angular   = ESC[3DESC[31;1;44m ESC[37;1;44mD:\angular
+D:\react     = ESC[3DESC[36;1;44m ESC[37;1;44mD:\react
+C:\Windows   = ESC[3D ESC[37;1;44m
+C:\Downloads = ESC[3D ESC[37;1;44m

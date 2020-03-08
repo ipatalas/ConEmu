@@ -3,6 +3,7 @@ local color = require('color')
 local gitutil = require('gitutil')
 local JSON = require("JSON")
 local path = require("path")
+local custom_dir = require('custom_dir')
 
 local function get_folder_name(path)
     local reversePath = string.reverse(path)
@@ -109,7 +110,9 @@ function cwd_prompt_filter()
     ascii_cwd = old_prompt:match('.*(.:[^>]*)>')
     local cwd = ascii_cwd or clink_cwd
 
-    if settings.path_type == PROMPT_FOLDER then
+    if custom_dir.is_inside(cwd) then
+        cwd = custom_dir.replace(cwd)
+    elseif settings.path_type == PROMPT_FOLDER then
         cwd = get_folder_name(cwd)
     elseif settings.tilde_substitution then
         local home_pattern = string.gsub(clink.get_env("userprofile"), "[%(%)%.%+%-%*%?%[%]%^%$%%]", "%%%1")
@@ -220,10 +223,10 @@ clink.prompt.filters = {}
 clink.prompt.register_filter(reset_prompt_filter, 1)
 clink.prompt.register_filter(time_prompt_filter, 2)
 clink.prompt.register_filter(admin_prompt_filter, 10)
-clink.prompt.register_filter(user_prompt_filter, 10)
-clink.prompt.register_filter(cwd_prompt_filter, 10)
-clink.prompt.register_filter(git_prompt_filter, 10)
-clink.prompt.register_filter(npm_prompt_filter, 10)
+clink.prompt.register_filter(user_prompt_filter, 11)
+clink.prompt.register_filter(cwd_prompt_filter, 12)
+clink.prompt.register_filter(git_prompt_filter, 13)
+clink.prompt.register_filter(npm_prompt_filter, 14)
 clink.prompt.register_filter(agnoster_filter, 99)
 
 local completions_dir = clink.get_env('ConEmuDir')..'/clink-completions/'
