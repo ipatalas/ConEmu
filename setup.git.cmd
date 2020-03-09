@@ -8,6 +8,8 @@ if exist "%ProgramFiles%\Git" (
     set "GIT_INSTALL_ROOT=%ProgramFiles%\Git"
 ) else if exist "%ProgramFiles(x86)%\Git" (
     set "GIT_INSTALL_ROOT=%ProgramFiles(x86)%\Git"
+) else if exist "%LocalAppData%\Programs\Git" (
+	set "GIT_INSTALL_ROOT=%LocalAppData%\Programs\Git"
 )
 
 
