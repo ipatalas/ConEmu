@@ -1,12 +1,12 @@
 e.=explorer .
 b=bash --login -i
+cd...=cd .. && cd ..
+cd....=cd .. && cd .. && cd ..
 ls=ls --show-control-chars -F --color $*
-pwd=cd
 clear=cls
 history=cat %ConEmuDir%\config\.history
 unalias=alias /d $1
 tc.=%COMMANDER_EXE% /O /T /R="%CD%"
-vs2015="%VS140COMNTOOLS%\VsDevCmd.bat"
 vs="%VS140COMNTOOLS%\VsDevCmd.bat"
 which=where $*
 gl=git log --oneline --all --graph --decorate  $*
