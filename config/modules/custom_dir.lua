@@ -18,7 +18,19 @@ local function split(delim, str)
     return t
 end
 
+local function replace_env_vars(str)
+    return str:gsub('${([%w_]+)}', os.getenv)
+end
+
 local function load_mappings()
+    local function transform_left(cwd)
+        return string.lower(replace_env_vars(cwd))
+    end
+
+    local function transform_right(str)
+        return str:gsub("ESC", "\x1b")
+    end
+
     local success, file = pcall(io.lines, clink.get_env('ConEmuDir') .. '/config/directory_mappings')
     if success == false then
         return
@@ -27,8 +39,7 @@ local function load_mappings()
     for line in file do
         local result = split("=", line)
         if result[1] ~= nil and result[2] ~= nil then
-            directory_mappings[string.lower(result[1])] =
-                string.gsub(result[2], "ESC", "\x1b")
+            directory_mappings[transform_left(result[1])] = transform_right(result[2])
         end
     end
 end
