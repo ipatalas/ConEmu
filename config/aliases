@@ -7,7 +7,6 @@ clear=cls
 history=cat %ConEmuDir%\config\.history
 unalias=alias /d $1
 tc.=%COMMANDER_EXE% /O /T /R="%CD%"
-vs="%VS140COMNTOOLS%\VsDevCmd.bat"
 which=where $*
 gl=git log --oneline --all --graph --decorate  $*
 s=git status  
