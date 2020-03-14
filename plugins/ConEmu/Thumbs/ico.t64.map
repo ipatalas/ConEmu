@@ -1,6 +1,6 @@
  ico
 
- Timestamp is 5c36636f (Thu Jan 10 00:11:11 2019)
+ Timestamp is 5da31ac1 (Sun Oct 13 15:38:25 2019)
 
  Preferred load address is 0000000180000000
 
@@ -64,11 +64,11 @@
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000000       ??$swprintf_c@$0IA@@@YAHAEAY0IA@_WPEB_WZZ 0000000180001000 f i ico.obj
  0001:0000002c       ??_EImage@Gdiplus@@UEAAPEAXI@Z 000000018000102c f i ico.obj
- 0001:0000002c       ??_GBitmap@Gdiplus@@UEAAPEAXI@Z 000000018000102c f i ico.obj
  0001:0000002c       ??_GImage@Gdiplus@@UEAAPEAXI@Z 000000018000102c f i ico.obj
+ 0001:0000002c       ??_GBitmap@Gdiplus@@UEAAPEAXI@Z 000000018000102c f i ico.obj
  0001:0000002c       ??_EBitmap@Gdiplus@@UEAAPEAXI@Z 000000018000102c f i ico.obj
- 0001:0000007c       ??_EMStream@@UEAAPEAXI@Z   000000018000107c f i ico.obj
  0001:0000007c       ??_GMStream@@UEAAPEAXI@Z   000000018000107c f i ico.obj
+ 0001:0000007c       ??_EMStream@@UEAAPEAXI@Z   000000018000107c f i ico.obj
  0001:000000f4       ?AddRef@MStream@@UEAAKXZ   00000001800010f4 f i ico.obj
  0001:00000108       ?CET_Cancel@@YAXPEAX@Z     0000000180001108 f   ico.obj
  0001:00000120       ?CET_Done@@YAXPEAUCET_Init@@@Z 0000000180001120 f   ico.obj
@@ -76,9 +76,9 @@
  0001:000001b4       ?CET_Init@@YAHPEAU0@@Z     00000001800011b4 f   ico.obj
  0001:00000278       ?CET_Load@@YAHPEAUCET_LoadInfo@@@Z 0000000180001278 f   ico.obj
  0001:000003d8       ?Clone@Image@Gdiplus@@UEAAPEAV12@XZ 00000001800013d8 f i ico.obj
- 0001:0000042c       ?LockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 000000018000142c f i ico.obj
- 0001:0000042c       ?UnlockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 000000018000142c f i ico.obj
  0001:0000042c       ?Revert@MStream@@UEAAJXZ   000000018000142c f i ico.obj
+ 0001:0000042c       ?UnlockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 000000018000142c f i ico.obj
+ 0001:0000042c       ?LockRegion@MStream@@UEAAJT_ULARGE_INTEGER@@0K@Z 000000018000142c f i ico.obj
  0001:0000042c       ?Clone@MStream@@UEAAJPEAPEAUIStream@@@Z 000000018000142c f i ico.obj
  0001:0000042c       ?CopyTo@MStream@@UEAAJPEAUIStream@@T_ULARGE_INTEGER@@PEAT3@2@Z 000000018000142c f i ico.obj
  0001:00000434       ?Close@ICOImage@@QEAAXXZ   0000000180001434 f i ico.obj
@@ -124,8 +124,8 @@
  0001:00001a70       __GSHandlerCheck           0000000180002a70 f   LIBCMT:gshandler.obj
  0001:00001a90       __GSHandlerCheckCommon     0000000180002a90 f   LIBCMT:gshandler.obj
  0001:00001b00       __security_check_cookie    0000000180002b00 f   LIBCMT:amdsecgs.obj
- 0001:00001b24       ??_Etype_info@@UEAAPEAXI@Z 0000000180002b24 f i LIBCMT:std_type_info_static.obj
  0001:00001b24       ??_Gtype_info@@UEAAPEAXI@Z 0000000180002b24 f i LIBCMT:std_type_info_static.obj
+ 0001:00001b24       ??_Etype_info@@UEAAPEAXI@Z 0000000180002b24 f i LIBCMT:std_type_info_static.obj
  0001:00001e80       _DllMainCRTStartup         0000000180002e80 f   LIBCMT:dll_dllmain.obj
  0001:00001ec0       __raise_securityfailure    0000000180002ec0 f   LIBCMT:gs_report.obj
  0001:00001ef4       __report_gsfailure         0000000180002ef4 f   LIBCMT:gs_report.obj
@@ -159,8 +159,8 @@
  0001:000027a0       __isa_available_init       00000001800037a0 f   LIBCMT:cpu_disp.obj
  0001:0000295c       __scrt_is_ucrt_dll_in_use  000000018000395c f   LIBCMT:ucrt_detection.obj
  0001:00002980       memcpy_repmovs             0000000180003980 f   libvcruntime:memcpy.obj
- 0001:000029a0       memmove                    00000001800039a0 f   libvcruntime:memcpy.obj
  0001:000029a0       memcpy                     00000001800039a0 f   libvcruntime:memcpy.obj
+ 0001:000029a0       memmove                    00000001800039a0 f   libvcruntime:memcpy.obj
  0001:00002df0       memset_repmovs             0000000180003df0 f   libvcruntime:memset.obj
  0001:00002e10       memset                     0000000180003e10 f   libvcruntime:memset.obj
  0001:00002fa0       __C_specific_handler       0000000180003fa0 f   libvcruntime:riscchandler.obj
@@ -535,8 +535,8 @@
  0002:00000470       IID_ISequentialStream      0000000180012470     uuid:objidl_i.obj
  0002:00000480       IID_IStream                0000000180012480     uuid:objidl_i.obj
  0002:00000498       ??_7type_info@@6B@         0000000180012498     LIBCMT:std_type_info_static.obj
- 0002:000004a0       _pRawDllMain               00000001800124a0     LIBCMT:dll_dllmain.obj
  0002:000004a0       _pDefaultRawDllMain        00000001800124a0     LIBCMT:dll_dllmain.obj
+ 0002:000004a0       _pRawDllMain               00000001800124a0     LIBCMT:dll_dllmain.obj
  0002:000004b8       _pDestructExceptionObject  00000001800124b8     libvcruntime:ehhelpers.obj
  0002:000007f8       ??_C@_08EHJDFFNH@__based?$CI@ 00000001800127f8     libvcruntime:undname.obj
  0002:00000808       ??_C@_07KOLFKCDI@__cdecl@  0000000180012808     libvcruntime:undname.obj
@@ -1259,8 +1259,8 @@
  0003:00000a20       ?gnLastWin32Error@@3KA     000000018001da20     ico.obj
  0003:00000a28       ?ghModule@@3PEAUHINSTANCE__@@EA 000000018001da28     ico.obj
  0003:00000a30       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 000000018001da30     ico.obj
- 0003:00000a38       ?ghHeap@@3PEAXEA           000000018001da38     common-kernel64:Memory.obj
- 0003:00000a40       ?g_LastDeletePtr@@3PEAXEA  000000018001da40     common-kernel64:Memory.obj
+ 0003:00000a38       ?g_LastDeletePtr@@3PEAXEA  000000018001da38     common-kernel64:Memory.obj
+ 0003:00000a40       ?ghHeap@?A0xf7fecf6f@@3PEAXEA 000000018001da40     common-kernel64:Memory.obj
  0003:00000fd0       ?__type_info_root_node@@3U__type_info_node@@A 000000018001dfd0     LIBCMT:tncleanup.obj
  0003:00000fe0       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 000000018001dfe0     LIBCMT:default_local_stdio_options.obj
  0003:00000fe8       __scrt_current_native_startup_state 000000018001dfe8     LIBCMT:utility.obj
@@ -1972,8 +1972,8 @@
  0003:00000510       __rgcode_page_info         000000018001d510     libucrt:mbctype.obj
  0003:000008c0       ?dazSupported@?1??common_control87@@9@9 000000018001d8c0     libucrt:ieee.obj
  0003:000008d0       ?dazSupported@?1??_ctrlfp@@9@9 000000018001d8d0     libucrt:fpctrl.obj
- 0003:00000a48       ?gHeapInit@@3U?$atomic@H@std@@A 000000018001da48     common-kernel64:Memory.obj
- 0003:00000a4c       ?gHeapCounter@@3U?$atomic@H@std@@A 000000018001da4c     common-kernel64:Memory.obj
+ 0003:00000a48       ?gHeapInit@?A0xf7fecf6f@@3U?$atomic@H@std@@A 000000018001da48     common-kernel64:Memory.obj
+ 0003:00000a4c       ?gHeapCounter@?A0xf7fecf6f@@3U?$atomic@H@std@@A 000000018001da4c     common-kernel64:Memory.obj
  0003:00000a50       ?__proc_attached@@3HA      000000018001da50     LIBCMT:dll_dllmain.obj
  0003:00000a60       GS_ExceptionRecord         000000018001da60     LIBCMT:gs_report.obj
  0003:00000b00       GS_ContextRecord           000000018001db00     LIBCMT:gs_report.obj
