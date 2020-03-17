@@ -414,6 +414,7 @@ local git_parser = parser(
         "blame",
         "branch" .. parser(
             "-v", "--verbose",
+            "-vv",
             "-q", "--quiet",
             "-t", "--track",
             "--set-upstream",
